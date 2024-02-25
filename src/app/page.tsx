@@ -1,95 +1,96 @@
-import Image from 'next/image'
+"use client"
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import styles from './page.module.css'
+import BeatfHome from './beatsfhome/beatsfhome';
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { store } from './redux/storeReducer';
+import { addMusic } from './redux/slices/generealSlice';
+import { MusicItem } from './redux/slices/generealSlice'
+import Reproductor from './beatsfhome/reproductor';
+import Loader from './Loader';
+import Header from './header/header';
+import { SampleFHome } from './samplefhome/samplefhome';
+import Ruleta from './ruleta/ruleta';
+import Footer from './foot/footer';
 
-export default function Home() {
+
+
+const FirestoreData: React.FC = () => {
+  const apiUrl = 'https://firestore.googleapis.com/v1/projects/bspstore-edddc/databases/(default)/documents/beats?key=AIzaSyC-tyxWI53wicroqnaBEYDRlpyuYJMj2Zw';
+  const dispatch = useDispatch();
+  const music = useSelector((state: any) => state.general.musicPlay);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const musicData = data.documents.map((doc: any) => {
+          const fields = doc.fields;
+
+
+          if (
+            'audio' in fields &&
+            'nombre' in fields &&
+            'pic' in fields &&
+            'bpm' in fields &&
+            'key' in fields &&
+            'genero' in fields
+          ) {
+            const transformedFields: MusicItem = {
+              audio: fields.audio.stringValue || '',
+              nombre: fields.nombre.stringValue || '',
+              pic: fields.pic.stringValue || '',
+              bpm: fields.bpm.stringValue || '',
+              key: fields.key.stringValue || '',
+              genero: fields.genero.stringValue || '',
+              id: doc.name.split("/").pop() || ''
+            };
+
+            return transformedFields;
+          } else {
+
+            console.error('Estructura de datos incorrecta:', fields);
+            return null;
+          }
+        });
+
+        const validMusicData = musicData.filter((item: MusicItem) => item !== null);
+
+        dispatch(addMusic(validMusicData));
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
+
+
+
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      <div>
+        <><Loader />
+        <Header></Header>
+          <BeatfHome></BeatfHome>
+          <Reproductor beat={music}></Reproductor>
+          <SampleFHome></SampleFHome></>
+        <Ruleta></Ruleta>
+        <Footer></Footer>
       </div>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default FirestoreData;

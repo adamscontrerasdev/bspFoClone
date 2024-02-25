@@ -1,0 +1,74 @@
+/* Loader.module.css */
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100000;
+    transition: all .2s;
+    background: transparent !important;
+}
+
+.loader {
+    border: 4px solid #000;
+    border-top: 4px solid var(--fondoClaro);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+
+    z-index: 1232354652354;
+
+    transition: all .2s;
+}
+
+.quitar {
+    opacity: 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.up {
+    width: 100vw;
+    height: 50vh;
+    background: var(--fondoClaro);
+    position: fixed;
+    top: 0;
+    transition: all .5s
+}
+
+.down {
+    width: 100vw;
+    height: 50vh;
+    background: var(--fondoClaro);
+    position: fixed;
+    bottom: 0;
+    transition: all .5s
+}
+
+.sube {
+    transform: translate(0, -50vh);
+}
+
+.baja {
+    transform: translate(0, 50vh);
+}
+
+.eliminar {
+    display: none;
+}
+
+.borrar {
+    opacity: 0;
+}

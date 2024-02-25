@@ -1,0 +1,255 @@
+.bgDynamic {
+    user-select: none;
+    height: 100vh;
+    width: 100vw;
+    background: var(--fondoClaro);
+}
+
+.beatContainer {
+    position: relative;
+    margin: auto;
+    top: 80px;
+    background: var(--bgOfBlur333);
+    height: calc(100vh - 80px);
+    width: 80vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    height: 90px;
+    padding: 40px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(51, 51, 51, 0.50);
+    backdrop-filter: blur(5px);
+    transition: all .2s;
+    color: #fff !important;
+
+}
+
+.filters label {
+    color: #fff;
+}
+
+.crecer {
+    height: 130px;
+    padding: 20px;
+    align-items: flex-start;
+
+}
+
+.genero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+
+.select_genero {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ffffff;
+    outline: none;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+
+}
+
+.select_genero option {
+    background: var(--fondoClaro);
+    border: none;
+    outline: none;
+
+}
+
+.bpm_number {
+    background: #333;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+    color: #fff;
+}
+
+.bpm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+.Key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+/* styles.module.css */
+
+.switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 20px;
+    background-color: #00aae4;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+
+    /* transition: all .3s; */
+
+    cursor: pointer;
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffba4b;
+    transition: all 0.2s;
+
+    left: 4px;
+}
+
+.box {
+    display: none;
+}
+
+.box:checked~.switch {
+    background-color: #252850;
+}
+
+.box:checked~.switch::before {
+    background: #fff;
+    transform: translate(32px);
+}
+
+.Mym {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_list {
+    width: 80%;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.filtrosAplicados {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: aparecer .2s ease-in-out;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.burbujaDefiltro1,
+.burbujaDefiltro2 {
+    background: #ddd;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filtrosAplicados h4 {
+    font-weight: 300;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+.spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+    width: 50px;
+    background: #ffffff;
+    border-radius: 50%;
+
+    animation: rueda infinite 1s ease-in-out;
+}
+
+@keyframes rueda {
+    0% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.spin::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: #222;
+    transform: translate(-50%, -50%);
+
+}
+
+.spin::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    height: 10px;
+    width: 20px;
+    border-radius: 0%;
+    background: #222;
+    transform: translate(-50%, -50%);
+}
+
+.buttonOfPages {
+    background: #ffffff;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 20px;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.buttonOfPages:hover{
+    background: #f3f3f3;
+}
+
+.pagination {
+    padding: 20px;
+    display: flex;
+    gap: .5em;
+}

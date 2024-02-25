@@ -1,0 +1,58 @@
+.bgDynamic{
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    top: 250vh;
+    background: var(--fondoClaro);
+    z-index: -10000;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 20px;
+}
+
+.bgDynamic h2{
+    font-weight: 300;
+}
+
+.bgDynamic h3{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.bgDynamic button{
+    height: 60PX;
+    width: 200PX;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.bgDynamic :nth-child(4){
+    gap: 10px;
+    background: #25D366;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgDynamic :nth-child(6){
+    gap: 10px;
+    background: #DB4A39;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.black{
+    filter: invert();
+}
