@@ -1,7 +1,6 @@
 "use client"
 import React from 'react';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import styles from './page.module.css'
 import BeatfHome from './beatsfhome/beatsfhome';
 import { Provider, useDispatch, useSelector } from 'react-redux'
