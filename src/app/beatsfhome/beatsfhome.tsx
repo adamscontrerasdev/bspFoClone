@@ -92,7 +92,7 @@ function BeatfHome() {
                     </div>
                     <div className={styles.Re}>
                         <h5>Regenerar</h5>
-                        <button className={styles.buttonOfRegeneration} onClick={ObjetoAleatorio}><GiPerspectiveDiceSixFacesRandom />
+                        <button className={styles.buttonOfRegeneration} onClick={ObjetoAleatorio}><GiPerspectiveDiceSixFacesRandom className={styles.dado}/>
                         </button>
                     </div>
 

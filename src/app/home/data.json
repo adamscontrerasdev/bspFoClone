@@ -1,0 +1,175 @@
+{   "principal":"AssetsBsp/Principal.jpg",
+"contacto":{"Whatsapp":"+541121710136", "message":"Prueba:Hola, tengo interes en contactarme con ustedes",
+"correo":"Bsp.studios7@gmail.com", 
+"ig":"https://www.instagram.com/blacksheep.bsp/"},
+    "categorias": [
+        {
+            "Auriculares": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/Auris/Akg k240.jpg",
+                    "name": "Auriculares AKG K240"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/Auris/Audiotecnica ATH-M20x.jpg",
+                    "name": "Audiotecnica ATH-M20x"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/Auris/dt-770-pro.jpg",
+                    "name": "DT-770 Pro"
+                },
+                {
+                    "id": 3,
+                    "pic": "equiposIMG/Auris/DT990 Pro.jpg",
+                    "name": "DT990 Pro"
+                }
+            ]
+        },
+        {
+            "Cuerdas": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/Cuerdas/Bajo Ibanez SDGR 5 cuerdas.jpg",
+                    "name": "Bajo Ibanez SDGR 5 cuerdas"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/Cuerdas/Cabezal Fender Valvular.jpg",
+                    "name": "Cabezal Fender Valvular"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/Cuerdas/Telecaste Squire.jpg",
+                    "name": "Telecaste Squire"
+                }
+            ]
+        },
+        {
+            "Microfonos": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/MIC/PRM-1.jpg",
+                    "name": "PRM-1"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/MIC/TLM 102.jpg",
+                    "name": "TLM 102"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/MIC/TLM 103.jpg",
+                    "name": "TLM 103"
+                }
+            ]
+        },
+        {
+            "Monitores": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/Monitores/KRK8.jpg",
+                    "name": "KRK8"
+                }
+            ]
+        },
+        {
+            "InterfazDeSonido": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/PDSonido/26C.jpg",
+                    "name": "26C"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/PDSonido/1610214146_0703.jpg",
+                    "name": "1610214146_0703"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/PDSonido/Yamha MIX.jpg",
+                    "name": "Yamaha MIX"
+                }
+            ]
+        },
+        {
+            "Pedales": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/Pedales/Boss Compression Sustainer Cs-3.jpg",
+                    "name": "Boss Compression Sustainer Cs-3"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/Pedales/boss-dd3-delay.jpg",
+                    "name": "Boss DD3 Delay"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/Pedales/Dead Beat Wet Dreams.jpg",
+                    "name": "Dead Beat Wet Dreams"
+                },
+                {
+                    "id": 3,
+                    "pic": "equiposIMG/Pedales/Digitech Whammy.jpg",
+                    "name": "Digitech Whammy"
+                },
+                {
+                    "id": 4,
+                    "pic": "equiposIMG/Pedales/Doner Mod Square.jpg",
+                    "name": "Doner Mod Square"
+                },
+                {
+                    "id": 5,
+                    "pic": "equiposIMG/Pedales/Dunlop Cry Baby Wah.jpg",
+                    "name": "Dunlop Cry Baby Wah"
+                },
+                {
+                    "id": 6,
+                    "pic": "equiposIMG/Pedales/Electro Harmonix Canyon.jpg",
+                    "name": "Electro Harmonix Canyon"
+                },
+                {
+                    "id": 7,
+                    "pic": "equiposIMG/Pedales/Ibanez Tube Skreamer.jpg",
+                    "name": "Ibanez Tube Skreamer"
+                },
+                {
+                    "id": 8,
+                    "pic": "equiposIMG/Pedales/Mad Stone - Tone City.jpg",
+                    "name": "Mad Stone - Tone City"
+                },
+                {
+                    "id": 9,
+                    "pic": "equiposIMG/Pedales/Mooer E7.jpg",
+                    "name": "Mooer E7"
+                },
+                {
+                    "id": 10,
+                    "pic": "equiposIMG/Pedales/Orange Kongpressor.jpg",
+                    "name": "Orange Kongpressor"
+                }
+            ]
+        },
+        {
+            "Teclados": [
+                {
+                    "id": 0,
+                    "pic": "equiposIMG/Teclados/Akai MPK Mini.jpg",
+                    "name": "Akai MPK Mini"
+                },
+                {
+                    "id": 1,
+                    "pic": "equiposIMG/Teclados/Arturia Microlab.jpg",
+                    "name": "Arturia Microlab"
+                },
+                {
+                    "id": 2,
+                    "pic": "equiposIMG/Teclados/keylab61-negro.jpg",
+                    "name": "Keylab61 Negro"
+                }
+            ]
+        }
+    ]
+}
