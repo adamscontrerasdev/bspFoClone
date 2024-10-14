@@ -197,9 +197,6 @@ const Beats: React.FC = () => {
     setLoadedData({ ...loadedData, documents: filteredData });
 
     existeFiltro();
-    console.log(filtrosAplicados);
-    console.log(typeof filtroEscala);
-    console.log(filtroGenero);
   }, [filtroGenero, filtroEscala, filtrosAplicados]);
 
   const limpiar = (quien: string) => {

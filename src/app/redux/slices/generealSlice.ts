@@ -7,6 +7,7 @@ export interface MusicItem {
     bpm: string;
     key: string;
     genero: string;
+    favorite:boolean;
     id: any;
 }
 
@@ -17,6 +18,7 @@ export interface MusicInPlay {
     bpm: string;
     key: string;
     genero: string;
+    favorite:boolean;
     id: any;
 }
 

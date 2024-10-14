@@ -16,6 +16,9 @@
 
   --escala: 300px;
   --giroRuleta: 0deg;
+  --checked-bg: #fff;
+  --sencondaryMusic: #fff;
+
 
 
 
@@ -82,7 +85,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 
@@ -93,6 +95,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {

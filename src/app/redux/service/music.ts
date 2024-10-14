@@ -10,6 +10,7 @@ export interface ListOfBeatsInterface {
         key: { stringValue: string };
         genero: { stringValue: string };
         id: { stringValue: string }
+        favorite: { booleanValue: boolean };
     };
 }
 
@@ -25,6 +26,7 @@ export interface ListaParaNewListOfBeats {
             key: { stringValue: string };
             nombre: { stringValue: string };
             pic: { stringValue: string };
+            favorite:{booleanValue:boolean}
         },
         createTime: string,
         updateTime: string;

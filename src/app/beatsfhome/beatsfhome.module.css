@@ -40,7 +40,6 @@
     height: 700px;
     border-radius: 20px;
     background: var(--bgOfBlur333);
-    backdrop-filter: blur(5px);
     gap: 2em;
     padding: 20px;
     z-index: 9999;
@@ -109,7 +108,6 @@
 .cardOfBeat {
     position: relative;
     background: #aaa;
-    backdrop-filter: blur(10px);
     display: flex;
     height: 100px;
     width: 100%;
@@ -118,6 +116,30 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+
+
+.name,
+.genero,
+.coraIcon,
+.bpm {
+    width: 10% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+}
+
+.coraIcon{
+    position: relative;
+    background: #000 !important;
+}
+
+.favIcon{
+    position: absolute;
+    top: 0;
 }
 
 .cardOfBeat img {
@@ -195,108 +217,30 @@
     font-size: 24px;
     box-shadow: #000 10px 10px 80px 1px;
     transition: all .2s;
-    background: #8d0000;
+    background: #ffffff96;
     color: var(--fondoClaro);
 }
 
-.buttonOfRegeneration:hover {
-    background: #f00;
-    box-shadow: #333 10px 10px 80px 1px;
+
+
+.dado {
+    transition: all .3s;
 }
 
-/*Reproductor*/
-
-.fatherOfRep {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    ;
-    background: var(--fondoClaro);
-    width: 100vw;
-    height: 90px;
-    border-radius: 20px 20px 0px 0px;
-    background: rgba(51, 51, 51, 0.50);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: up .2s linear;
-    transition: all .2s;
-    user-select: none;
-}
-
-@keyframes up {
-    0% {
-        height: 0;
+@media (min-width : 1080px) {
+    .buttonOfRegeneration:hover {
+        background: #aaa;
+        box-shadow: #333 10px 10px 80px 1px;
     }
-}
 
-.buttonOfRepReiniciar {
-    position: absolute;
-    top: 20px;
-    right: 60px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    font-size: 24px;
+    .buttonOfRegeneration:hover .dado {
+        fill: #fff;
+    }
+
 }
 
 
-.fatherOfRep img {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px 20px 0 0;
-}
 
-.nameAndGenero {
-    width: 90%;
-}
-
-.buttonOfRep {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    border: none;
-    background: transparent;
-
-    font-size: 24px;
-    outline: none;
-    cursor: pointer;
-}
-
-.input {
-    -webkit-appearance: none;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    border: none;
-    padding: 0;
-    outline: none;
-}
-
-.input::-webkit-slider-runnable-track {
-    background-color: #333;
-    height: 6px;
-    border-radius: 3px;
-}
-
-.input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border-radius: 100%;
-    background: #8d0000;
-    height: 18px;
-    width: 18px;
-    margin-top: -7px;
-    box-shadow: #f00 0px 0px 50px 5px;
-    cursor: pointer;
-}
 
 @media (max-width:1880px) {
     .bgDinamyc {
@@ -324,7 +268,6 @@
         height: 700px;
         border-radius: 20px;
         background: var(--bgOfBlur333);
-        backdrop-filter: blur(5px);
         transition: all .5s;
         padding: 20px;
         z-index: 9999;
@@ -361,7 +304,6 @@
         gap: 8px;
         border-radius: 20px;
         background: var(--bgOfBlur333);
-        backdrop-filter: blur(5px);
     }
 
     .line {
@@ -385,24 +327,6 @@
     .lineOfSep3 {
         display: none;
     }
-
-    .fatherOfRep {
-        position: fixed;
-        bottom: 0;
-        left: 0px;
-        background: var(--fondoClaro);
-        width: 100vw;
-        height: 90px;
-        border-radius: 20px 20px 0px 0px;
-        background: rgba(51, 51, 51, 0.50);
-        backdrop-filter: blur(10px);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        animation: up .2s linear;
-        transition: all .2s;
-        user-select: none;
-    }
 }
 
 .prue {
@@ -418,10 +342,7 @@
 
 @media (max-width:800px) {
 
-    .buttonOfRegeneration:hover {
-        background: #8d0000;
-        box-shadow: #ff0000 10px 10px 80px 1px;
-    }
+
 
 
     .titleOfBeats {
@@ -466,7 +387,6 @@
     .cardOfBeat {
         position: relative;
         background: rgba(51, 51, 51, 0.50);
-        backdrop-filter: blur(10px);
         display: flex;
         height: 9vh;
         width: 100%;
@@ -492,26 +412,9 @@
         gap: 8px;
         border-radius: 20px;
         background: var(--bgOfBlur333);
-        backdrop-filter: blur(5px);
     }
 
-    .fatherOfRep {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100vw;
-        height: 100px;
-        border-radius: 20px 20px 0px 0px;
-        background: rgba(51, 51, 51, 0.50);
-        backdrop-filter: blur(10px);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        animation: up .2s linear;
-        transition: all .2s;
-        user-select: none;
-        padding: 10px;
-    }
+
 
     .buttonOfRepReiniciar {
         position: absolute;
@@ -547,18 +450,19 @@
         max-width: 50px;
     }
 
-    .buttonOfRep {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
 
-        border: none;
-        background: transparent;
 
-        font-size: 24px;
-        outline: none;
-        cursor: pointer;
+    .dragHandle {
+        width: 100%;
+        height: 20px;
+        cursor: grab;
+        background-color: rgb(255, 0, 0);
+        border-radius: 20px 20px 0 0;
+    }
+
+    /* Si quieres cambiar el cursor durante el arrastre */
+    .dragHandle:active {
+        cursor: grabbing;
     }
 
     .bgDinamyc {
@@ -580,7 +484,6 @@
         height: 50vh;
         border-radius: 20px;
         background: var(--bgOfBlur333);
-        backdrop-filter: blur(5px);
         transition: all .5s;
         padding: 20px;
         z-index: 9999;
@@ -605,4 +508,9 @@
     }
 
 
+}
+
+.favIcon {
+    fill: #f00;
+    font-size: 24px;
 }

@@ -1,0 +1,87 @@
+.containerLogin,
+.iniciarContainer,
+.iniciadoContainer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 50vh;
+}
+
+.containerLogin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    border: none;
+    outline: none;
+    padding: 1em;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: rgb(9, 136, 255);
+    transition: all .2s;
+}
+
+.containerLogin button:hover {
+    background: rgb(0, 117, 226);
+
+}
+
+.iniciarContainer h2 {
+    font-size: 24px;
+}
+
+.iniciarContainer p {
+    font-size: 12px;
+    margin-bottom: 2em;
+}
+
+.iniciadoContainer {
+    gap: 1em;
+}
+
+.imageUser {
+    border-radius: 50%;
+}
+
+.imgContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.lineDraw,
+.lineDraw2,
+.lineDraw3 {
+    position: absolute;
+    height: 1px;
+    width: 20px;
+    background: #000;
+}
+
+.lineDraw {
+    position: absolute;
+    width: 80%;
+    background: linear-gradient(to left, #000, transparent, #000);
+}
+
+.lineDraw2 {
+    left: 21px;
+    transform: rotate(90deg) translate(10px);
+}
+
+.lineDraw3 {
+    right: 21px;
+    transform: rotate(90deg) translate(10px);
+
+}
+.buttonCerrar{
+    background: #d00 !important;
+}
+.buttonCerrar:hover {
+    background: #910000 !important;
+}

@@ -26,7 +26,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -34,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "out/types/**/*.ts"
-  ],
+, "src/app/hooks/useFavorite.js", "src/app/beatsfhome/beatslist.jsx"  ],
   "exclude": [
     "node_modules"
   ]

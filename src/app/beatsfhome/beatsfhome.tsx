@@ -35,8 +35,6 @@ function BeatfHome() {
     const ObjetoAleatorio = () => {
         const indiceAleatorio = Math.floor(Math.random() * ListaDeBeats.length);
         setRandomMusic(ListaDeBeats[indiceAleatorio])
-        console.log("slkafdsjl", indiceAleatorio);
-        console.log("MIRAESTO", randomMusic);
     }
 
 
@@ -69,7 +67,6 @@ function BeatfHome() {
     }, [ListaDeBeats]);
 
     useEffect(() => {
-        console.log(deviceWidth);
         currentBeatOfAll ? currentBeatOfAll.style.transform = 'translate(0)' : console.log();
         ;
     }, [deviceWidth]);
@@ -85,14 +82,14 @@ function BeatfHome() {
             <div className={styles.base}>
                 <div className={styles.WeBeatsFAll} ref={beatOfAll}>
                     <h2>Seleccion rapida</h2>
-                    {randomMusic && <img src={randomMusic?.pic} alt="" />}
+                    {randomMusic && <img src={`/api/proxy?url=${randomMusic?.pic}`} alt="" />}
                     <div className={styles.titleAndSub}>
                         <h2>{randomMusic?.nombre}</h2>
                         <h4>{randomMusic?.genero}</h4>
                     </div>
                     <div className={styles.Re}>
                         <h5>Regenerar</h5>
-                        <button className={styles.buttonOfRegeneration} onClick={ObjetoAleatorio}><GiPerspectiveDiceSixFacesRandom />
+                        <button className={styles.buttonOfRegeneration} onClick={ObjetoAleatorio}><GiPerspectiveDiceSixFacesRandom className={styles.dado}/>
                         </button>
                     </div>
 
