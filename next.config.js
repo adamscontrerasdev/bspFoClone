@@ -5,6 +5,9 @@ module.exports = {
   images: {
     domains: ['lh3.googleusercontent.com'], // Mantener los dominios para las imágenes
   },
+  images: {
+    unoptimized: true,
+  },
   async rewrites() {
     return [
       {
