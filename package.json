@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node server.js -H 0.0.0.0 -P 3000",
-    "build": "next build && mv .next out && mv public out",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
