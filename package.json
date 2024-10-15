@@ -16,8 +16,6 @@
     "canvas": "^2.11.2",
     "node-pre-gyp": "^0.17.0",
     "classnames": "^2.5.1",
-    "firebase": "^10.12.3",
-    "firebaseui": "^6.1.0",
     "framer-motion": "^10.18.0",
     "http-proxy-middleware": "^3.0.0",
     "jquery": "^3.7.1",
@@ -26,7 +24,6 @@
     "node-vibrant": "^3.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-firebaseui": "^6.0.0",
     "react-icons": "^4.12.0",
     "react-query": "^3.39.3",
     "react-redux": "^9.0.4"
