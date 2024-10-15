@@ -1,15 +1,15 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = {
-  distDir: 'out',
+  // Vercel maneja la salida de forma automática, no necesitas especificar 'distDir'
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    domains: ['lh3.googleusercontent.com'], // Mantener los dominios para las imágenes
   },
   async rewrites() {
     return [
       {
         source: '/api/proxy',
-        destination: '/api/proxy', // Matched parameters can be used in the destination
+        destination: '/api/proxy', // Puedes mantener esta regla si es necesaria
       },
     ];
   },
@@ -20,7 +20,7 @@ module.exports = {
         headers: [
           {
             key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin',
+            value: 'same-origin', // Mantén los headers de seguridad si los necesitas
           },
           {
             key: 'Cross-Origin-Embedder-Policy',
