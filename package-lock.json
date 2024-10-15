@@ -14,6 +14,7 @@
     "@types/jquery": "^3.5.29",
     "boxicons": "^2.1.4",
     "canvas": "^2.11.2",
+    "node-pre-gyp": "^1.0.0",
     "classnames": "^2.5.1",
     "firebase": "^10.12.3",  
     "firebaseui": "^6.1.0",  
