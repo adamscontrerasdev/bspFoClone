@@ -1,10 +1,14 @@
 import fetch from 'node-fetch';
 
-export default async function handler(req, res) {
-  const { url } = req.query;
+export async function GET(req) {
+  const { searchParams } = new URL(req.url);
+  const url = searchParams.get('url');
 
   if (!url) {
-    return res.status(400).json({ error: 'URL is required' });
+    return new Response(JSON.stringify({ error: 'URL is required' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   try {
@@ -15,10 +19,15 @@ export default async function handler(req, res) {
     }
 
     const buffer = await response.buffer();
-    res.setHeader('Content-Type', response.headers.get('content-type'));
-    res.send(buffer);
+    return new Response(buffer, {
+      status: 200,
+      headers: { 'Content-Type': response.headers.get('content-type') },
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch the image' });
+    return new Response(JSON.stringify({ error: 'Failed to fetch the image' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

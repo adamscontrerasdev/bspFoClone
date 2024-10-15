@@ -1,8 +1,10 @@
 module.exports = {
   images: {
-    domains: ['lh3.googleusercontent.com', 'ep00.epimg.net'], // Asegúrate de incluir cualquier dominio adicional que necesites
-  },
-  images: {
+    domains: [
+      'lh3.googleusercontent.com',
+      'ep00.epimg.net',
+      'lahiguera.net', // Asegúrate de incluir cualquier otro dominio que necesites
+    ],
     unoptimized: true,
   },
   async headers() {
