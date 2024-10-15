@@ -36,7 +36,7 @@
     ".next/types/**/*.ts",
     "out/types/**/*.ts",
     "types/**/*.d.ts"
-, "src/app/hooks/useFavorite.jsx", "src/app/beatsfhome/beatslist.jsx", "src/app/header/Fav.jsx"  ],
+, "src/app/hooks/useFavorite.jsx", "src/app/beatsfhome/beatslist.jsx", "src/app/header/Fav.jsx", "src/app/beatsfhome/colorAdaptativeDiv.jsx", "src/app/beatsfhome/reproductor.tsx"  ],
   "exclude": [
     "node_modules"
   ]

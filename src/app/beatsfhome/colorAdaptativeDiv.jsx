@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 import style from "./repro.module.css";
 
 function getLuminance(color) {
@@ -7,7 +7,7 @@ function getLuminance(color) {
   const g = parseInt(rgb[1], 10) / 255;
   const b = parseInt(rgb[2], 10) / 255;
 
-  const a = [r, g, b].map(v => {
+  const a = [r, g, b].map((v) => {
     return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
   });
 
@@ -26,17 +26,17 @@ const ColorAdaptiveDiv = ({ children, bgColor }) => {
     const adjustTextColorBasedOnBg = () => {
       const color = window.getComputedStyle(div).backgroundColor;
       if (isDark(color)) {
-        div.style.color = 'white';
+        div.style.color = "white";
       } else {
-        div.style.color = 'black';
+        div.style.color = "black";
       }
     };
 
     adjustTextColorBasedOnBg();
 
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        if (mutation.attributeName === 'style') {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "style") {
           adjustTextColorBasedOnBg();
         }
       });
@@ -44,7 +44,7 @@ const ColorAdaptiveDiv = ({ children, bgColor }) => {
 
     observer.observe(div, {
       attributes: true,
-      attributeFilter: ['style']
+      attributeFilter: ["style"],
     });
 
     return () => {
@@ -53,7 +53,11 @@ const ColorAdaptiveDiv = ({ children, bgColor }) => {
   }, []);
 
   return (
-    <div ref={divRef} style={{ backgroundColor: bgColor }} className={style.container}>
+    <div
+      ref={divRef}
+      style={{ backgroundColor: bgColor }}
+      className={style.container}
+    >
       {children}
     </div>
   );

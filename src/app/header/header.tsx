@@ -13,7 +13,7 @@ import Image from "next/image";
 import { MdFavoriteBorder } from "react-icons/md";
 
 interface HeaderProps {
-  setShowFav: React.Dispatch<React.SetStateAction<boolean>>; // Definimos el tipo de la prop
+  setShowFav?: React.Dispatch<React.SetStateAction<boolean>>; // Definimos el tipo de la prop
 }
 
 const Header: React.FC<HeaderProps> = ({ setShowFav }) => {
@@ -55,7 +55,8 @@ const Header: React.FC<HeaderProps> = ({ setShowFav }) => {
   };
 
   const showFavorite = () => {
-    setShowFav(prev => !prev); // Alternamos el valor de showFav
+    setShowFav?
+    setShowFav(prev => !prev):alert // Alternamos el valor de showFav
   };
 
   return (
