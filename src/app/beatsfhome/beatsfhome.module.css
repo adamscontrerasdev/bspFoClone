@@ -134,13 +134,16 @@
 
 .coraIcon{
     position: relative;
-    background: #000 !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.favIcon{
-    position: absolute;
-    top: 0;
-}
+/* .favIcon{
+
+} */
 
 .cardOfBeat img {
     width: 80px;
@@ -513,4 +516,17 @@
 .favIcon {
     fill: #f00;
     font-size: 24px;
+}
+
+.rotateFoLoadingIcon{
+    animation: rotateIcon ease-in-out 1s infinite;
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -65,32 +65,43 @@ export const favoritesApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://firestore.googleapis.com/v1/projects/bspstore-edddc/databases/(default)/documents/', // Base URL para Firestore
     }),
+    // Definir el tipo de los tags
+    tagTypes: ['Favorites'],  // <-- Añadido aquí
     endpoints: (builder) => ({
         getFavoritesByUserId: builder.query<ListOfFavoritesInterface | null, { userId: string }>({
             query: ({ userId }) => `users/${userId}/favorites`,
             transformResponse: async (response: any, meta, arg) => {
-                // Si el usuario no existe o no tiene favoritos
                 if (response.error?.status === 404) {
                     return null; // Retornar null si no existe la colección del usuario
                 }
                 return response; // Devolver la respuesta en caso de éxito
-            }
+            },
+            providesTags: (result, error, { userId }) =>
+                result
+                    ? [{ type: 'Favorites' as const, id: userId }] // <-- Definir el tag con 'as const'
+                    : [{ type: 'Favorites' as const, id: userId }],
         }),
         getAllFavorites: builder.query<ListOfFavoritesInterface[], null>({
             query: () => "users/favorites",
         }),
         addFavoriteBeat: builder.mutation<{ success: boolean }, { userId: string, beatId: string }>({
             query: ({ userId, beatId }) => ({
-                url: `users/${userId}/favorites`,
-                method: 'POST',
-                body: { beatId },
+                url: `users/${userId}/favorites/${beatId}`, // URL para el documento
+                method: 'PATCH', // Usa PATCH para crear o actualizar
+                body: {
+                    fields: {
+                        beatId: { stringValue: beatId } // Asegúrate de que este formato sea correcto
+                    },
+                },
             }),
-        }),
-        removeFavoriteBeat: builder.mutation<{ success: boolean }, { userId: string, favoriteId: string }>({
+            invalidatesTags: (result, error, { userId }) => [{ type: 'Favorites' as const, id: userId }],
+        }),        
+        removeFavoriteBeat: builder.mutation<{ success: boolean }, { userId: string, favoriteId: string }>( {
             query: ({ userId, favoriteId }) => ({
                 url: `users/${userId}/favorites/${favoriteId}`,
-                method: 'DELETE',
+                method: 'DELETE', // Método para eliminar el documento
             }),
+            invalidatesTags: (result, error, { userId }) => [{ type: 'Favorites' as const, id: userId }],
         }),
     }),
 });

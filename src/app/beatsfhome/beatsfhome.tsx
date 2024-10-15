@@ -67,7 +67,7 @@ function BeatfHome() {
     }, [ListaDeBeats]);
 
     useEffect(() => {
-        currentBeatOfAll ? currentBeatOfAll.style.transform = 'translate(0)' : console.log();
+        currentBeatOfAll ? currentBeatOfAll.style.transform = 'translate(0)' : "";
         ;
     }, [deviceWidth]);
 
