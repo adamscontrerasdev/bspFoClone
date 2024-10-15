@@ -3,7 +3,8 @@ module.exports = {
     domains: [
       'lh3.googleusercontent.com',
       'ep00.epimg.net',
-      'lahiguera.net', // Asegúrate de incluir cualquier otro dominio que necesites
+      'lahiguera.net',
+      'miro.medium.com' // Asegúrate de incluir cualquier otro dominio que necesites
     ],
     unoptimized: true,
   },
