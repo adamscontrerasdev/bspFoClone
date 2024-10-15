@@ -42,7 +42,7 @@ const Beats: React.FC = () => {
   /*------------------------------------*/
   const [filtroEscala, setFiltroEscala] = useState<string | null>("vacio");
   /*------------------------------------*/
-  const [loadedData, setLoadedData] = useState<ListaParaNewListOfBeats>(null);
+  const [loadedData, setLoadedData] = useState<ListaParaNewListOfBeats>();
   /*------------------------------------*/
   const { data, error, isLoading } = useGetInitialBeatsQuery(null, {});
   /*------------------------------------*/
@@ -95,7 +95,7 @@ const Beats: React.FC = () => {
       const documentsArray = data;
       setLoadedData(documentsArray);
     } else {
-      setLoadedData(null);
+      setLoadedData(undefined);
     }
     fetch(apiUrl)
       .then((response) => response.json())
@@ -118,6 +118,7 @@ const Beats: React.FC = () => {
               key: fields.key.stringValue || "",
               genero: fields.genero.stringValue || "",
               id: doc.name.split("/").pop() || "",
+              favorite: false,
             };
             return transformedFields;
           } else {
@@ -151,9 +152,9 @@ const Beats: React.FC = () => {
     setFiltrosAplicados(filtrosActivos);
 
     if (filtrosActivos) {
-      cajaDeFiltros.current.classList.add("beats_crecer__SzNUw");
+      cajaDeFiltros?.current?.classList.add("beats_crecer__SzNUw");
     } else {
-      cajaDeFiltros.current.classList.remove("beats_crecer__SzNUw");
+      cajaDeFiltros?.current?.classList.remove("beats_crecer__SzNUw");
     }
   };
 
@@ -321,7 +322,9 @@ const Beats: React.FC = () => {
           <div className={style.container_list}>
             {isLoading && <div className={style.spin}></div>}
             {error && <h1>UNA POLLA</h1>}
-            {loadedData?.documents?.length > 0 &&
+
+            {loadedData &&
+              loadedData.documents?.length > 0 &&
               paginatedData.map((beat) => (
                 <div
                   key={beat.name}

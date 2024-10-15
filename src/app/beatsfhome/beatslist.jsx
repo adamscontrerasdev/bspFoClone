@@ -1,30 +1,30 @@
-// Lista.js
 import style from "./beatsfhome.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { playMusic } from "../redux/slices/generealSlice";
 import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import styles from "./../header/style.module.css";
-import { useFavorites } from "../hooks/useFavorite"; // Importa el hook
-
+import { useFavorites } from "../hooks/useFavorite";
+import LoadingIcon from "./loadingIcon/LoadingIcon";
 const Lista = () => {
   const dispatch = useDispatch();
   const ListaDeBeats = useSelector((state) => state.general.allMusic);
-  const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const { favorites, addFavoriteCall, removeFavorite, loading } =
+    useFavorites();
 
   const reproducirBeat = (id) => {
     dispatch(playMusic(id));
   };
 
-  useEffect(() => {
-    console.log(ListaDeBeats);
-  }, [ListaDeBeats]);
-
-  const handleFavoriteClick = (beatId) => {
-    if (favorites.includes(beatId)) {
-      removeFavorite(beatId);
-    } else {
-      addFavorite(beatId);
+  const handleFavoriteClick = async (beatId) => {
+    try {
+      if (favorites.includes(beatId)) {
+        await removeFavorite(beatId);
+      } else {
+        await addFavoriteCall(beatId);
+      }
+    } catch (error) {
+      console.error("Error in handleFavoriteClick: ", error);
     }
   };
 
@@ -52,14 +52,20 @@ const Lista = () => {
             <div
               className={style.coraIcon}
               onClick={(e) => {
-                e.stopPropagation(); // Evitar que el click en el ícono de favorito dispare el evento de reproducir
+                e.stopPropagation();
                 handleFavoriteClick(beat.id);
               }}
             >
-              {favorites.includes(beat.id) ? (
-                <MdOutlineFavorite className={`${style.favIcon} ${styles.one}`} />
+              {loading[beat.id] ? ( // Usa loading[beat.id] para verificar el estado de carga
+                <LoadingIcon></LoadingIcon> // Muestra un indicador de carga
+              ) : favorites.includes(beat.id) ? (
+                <MdOutlineFavorite
+                  className={`${style.favIcon} ${styles.one}`}
+                />
               ) : (
-                <MdFavoriteBorder className={`${style.favIcon} ${styles.two}`} />
+                <MdFavoriteBorder
+                  className={`${style.favIcon} ${styles.two}`}
+                />
               )}
             </div>
 

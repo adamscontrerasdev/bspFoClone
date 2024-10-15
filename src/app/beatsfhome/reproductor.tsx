@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import style from "./repro.module.css";
-import { ListOfBeatsInterface } from "./beatslist";
+import { ListOfBeatsInterface } from "@/app/redux/service/music";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { IoReturnDownBack } from "react-icons/io5";
@@ -26,10 +26,17 @@ interface Colors {
 }
 
 const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
-  const [iconColor, setIconColor] = useState<string>(null);
+  const [iconColor, setIconColor] = useState<string>("");
   const [vibrantIdErr, setVibrantIdErr] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const [colors, setColors] = useState<Colors>({});
+  const [colors, setColors] = useState<Colors>({
+    vibrant: "#FFFFFF",
+    muted: "#FFFFFF", // Blanco u otro color predeterminado
+    secondary: "#000000",
+    lightVibrant: "#FFFFFF",
+    darkMuted: "#FFFFFF",
+    lightMuted: "#FFFFFF",
+  });
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [viewDetailOfBuy, setViewDetailOfBuy] = useState<boolean>(false);
@@ -53,8 +60,8 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
   const dragRef = useRef<HTMLDivElement | null>(null);
 
   const [totalPrice, setTotalPrice] = useState(0);
-  const priceWav = useRef(null);
-  const priceStems2 = useRef(null);
+  const priceWav = useRef<HTMLDivElement | null>(null);
+  const priceStems2 = useRef<HTMLDivElement | null>(null);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const sliderRef = useRef<HTMLInputElement>(null);
@@ -164,7 +171,7 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
       //   setViewDetailOfBuy(true);
       // }, 500);
       setViewDetailOfBuy(true);
-    } else {
+    } else if (fatherReprRef.current?.style.height === "90vh") {
       fatherReprRef.current.style.height = "90px";
       setTimeout(() => {
         setItsOpen(false);
@@ -229,9 +236,9 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
 
   useEffect(() => {
     // Función para calcular la luminosidad del color
-    const isDarkColor = (color: string) => {
+    const isDarkColor = (color: string | undefined) => {
       // Convertir color a RGB
-      const rgb = parseInt(color.slice(1), 16);
+      const rgb = color ? parseInt(color.slice(1), 16) : 0;
       const r = (rgb >> 16) & 0xff;
       const g = (rgb >> 8) & 0xff;
       const b = rgb & 0xff;
@@ -259,7 +266,6 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
         icon.style.color = iconColor;
         icon.style.fill = iconColor;
         icon.style.stroke = iconColor;
-
       });
     }
   }, [colors.vibrant]);
@@ -277,12 +283,15 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
 
   useEffect(() => {
     // Actualiza la variable CSS
-    document.documentElement.style.setProperty("--checked-bg", colors.vibrant);
     document.documentElement.style.setProperty(
-      "--sencondaryMusic",
-      colors.secondary
+      "--checked-bg",
+      colors?.vibrant ?? "" // Usar un valor por defecto si es undefined
     );
-  }, [colors.vibrant]);
+    document.documentElement.style.setProperty(
+      "--secondaryMusic",
+      colors?.secondary ?? "" // Usar un valor por defecto si es undefined
+    );
+  }, [colors?.vibrant, colors?.secondary]);
 
   useEffect(() => {
     const updateBackground = () => {
@@ -307,17 +316,24 @@ const Reproductor: React.FC<BeatDetailProps> = ({ beat }) => {
   }, [currentTime, audioRef.current?.duration]);
 
   const selectAll = () => {
-    const total =
-      parseInt(priceStems2.current.textContent) +
-      parseInt(priceWav.current.textContent);
-    setIsChecked1(true);
-    setIsChecked2(true);
-    setTotalPrice(total);
+    let total = 0; // Inicializar total antes de calcular
+
+    if (priceStems2.current && priceWav.current) {
+      // Asegurarse de que las referencias no sean nulas
+      const stemsPrice =
+        parseInt(priceStems2.current.textContent || "0", 10) || 0;
+      const wavPrice = parseInt(priceWav.current.textContent || "0", 10) || 0;
+      total = stemsPrice + wavPrice; // Calcular el total
+    }
+
+    setIsChecked1(true); // Marcar WAV como seleccionado
+    setIsChecked2(true); // Marcar Stems como seleccionado
+    setTotalPrice(total); // Establecer el precio total
   };
 
   const playErrorSound = () => {
     const errorSound = new Audio("sonidos/errSound.wav");
-    errorSound.volume = 0.3; 
+    errorSound.volume = 0.3;
     errorSound.play();
   };
   const gestorDeCompra = () => {

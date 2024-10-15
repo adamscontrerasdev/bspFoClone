@@ -6,25 +6,27 @@ import { store } from "./redux/storeReducer";
 import { SessionProvider as NextAuthProvider } from "next-auth/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-  session, // Asegúrate de pasar la sesión aquí
-}: {
+interface Props {
   children: React.ReactNode;
-  session: any; // Aquí puedes especificar el tipo si es necesario
-}) {
+}
+
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider store={store}>
           <NextUIProvider>
-            <NextAuthProvider session={session}>{children}</NextAuthProvider>
+            {/* Deja que NextAuth gestione la sesión internamente */}
+            <NextAuthProvider>{children}</NextAuthProvider>
           </NextUIProvider>
         </ReduxProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

@@ -1,0 +1,441 @@
+[debug] [2024-10-15T18:39:09.545Z] ----------------------------------------------------------------------
+[debug] [2024-10-15T18:39:09.547Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-10-15T18:39:09.547Z] CLI Version:   13.11.0
+[debug] [2024-10-15T18:39:09.547Z] Platform:      win32
+[debug] [2024-10-15T18:39:09.547Z] Node Version:  v20.9.0
+[debug] [2024-10-15T18:39:09.548Z] Time:          Tue Oct 15 2024 15:39:09 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-10-15T18:39:09.548Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-15T18:39:09.550Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-10-15T18:39:09.657Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-15T18:39:09.657Z] > authorizing via signed-in user (adamscontreras18@gmail.com)
+[debug] [2024-10-15T18:39:09.658Z] [iam] checking project bspstore-edddc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-15T18:39:09.658Z] > refreshing access token with scopes: []
+[debug] [2024-10-15T18:39:09.659Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-15T18:39:09.659Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-15T18:39:09.769Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-10-15T18:39:09.769Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-15T18:39:09.776Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions [none]
+[debug] [2024-10-15T18:39:09.776Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions x-goog-quota-user=projects/bspstore-edddc
+[debug] [2024-10-15T18:39:09.776Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T18:39:09.982Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-10-15T18:39:09.982Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-10-15T18:39:10.624Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions 200
+[debug] [2024-10-15T18:39:10.624Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T18:39:10.624Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc [none]
+[debug] [2024-10-15T18:39:11.035Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc 200
+[debug] [2024-10-15T18:39:11.035Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc {"projectId":"bspstore-edddc","projectNumber":"889829954972","displayName":"BSPStore","name":"projects/bspstore-edddc","resources":{"hostingSite":"bspstore-edddc","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_cd3b5e14-7ec3-4734-803f-9d8ed8210272"}
+[debug] [2024-10-15T18:39:19.440Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites pageToken=&pageSize=10
+[debug] [2024-10-15T18:39:20.493Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T18:39:20.493Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T18:39:20.494Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 
+[debug] [2024-10-15T18:39:20.761Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T18:39:20.762Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T18:39:20.762Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config [none]
+[debug] [2024-10-15T18:39:21.540Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config 200
+[debug] [2024-10-15T18:39:21.540Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config {"projectId":"bspstore-edddc","appId":"1:889829954972:web:62401248e72e0951c0e459","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central","apiKey":"AIzaSyC-tyxWI53wicroqnaBEYDRlpyuYJMj2Zw","authDomain":"bspstore-edddc.firebaseapp.com","messagingSenderId":"889829954972"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-10-15T18:39:37.613Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc [none]
+[debug] [2024-10-15T18:39:38.574Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc 200
+[debug] [2024-10-15T18:39:38.575Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc {"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info]   - Environments: .env.local
+
+
+[info]    Creating an optimized production build ...
+
+[info] <w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\next-flight-css-loader.js??ruleSet[1].rules[14].oneOf[7].use[0]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[1]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[2]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\src\app\beatsfhome\repro.module.css|ssr': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 1 items } -> webpack/lib/ModuleWarning -> Warning
+
+[info] Failed to compile.
+
+
+[info] ./src/app/demo/page.tsx
+Error: 
+  x "getServerSideProps" is not supported in app/. Read more: https://nextjs.org/docs/app/building-your-application/data-fetching
+  | 
+  | 
+    ,-[C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\src\app\demo\page.tsx:15:1]
+ 15 | }
+ 16 | 
+ 17 | // Note that this is a higher-order function.
+ 18 | export const getServerSideProps = withUserTokenSSR()()
+    :              ^^^^^^^^^^^^^^^^^^
+ 19 | 
+ 20 | export default withUser()(Page)
+    `----
+
+Import trace for requested module:
+./src/app/demo/page.tsx
+
+
+[info] 
+
+[info] > Build failed because of webpack errors
+
+[debug] [2024-10-15T18:39:47.024Z] Error: ENOENT: no such file or directory, open 'C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\out\server\middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-15T20:17:29.244Z] ----------------------------------------------------------------------
+[debug] [2024-10-15T20:17:29.247Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-10-15T20:17:29.247Z] CLI Version:   13.11.0
+[debug] [2024-10-15T20:17:29.247Z] Platform:      win32
+[debug] [2024-10-15T20:17:29.247Z] Node Version:  v20.9.0
+[debug] [2024-10-15T20:17:29.247Z] Time:          Tue Oct 15 2024 17:17:29 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-10-15T20:17:29.247Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-15T20:17:29.303Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-15T20:17:29.303Z] > authorizing via signed-in user (adamscontreras18@gmail.com)
+[debug] [2024-10-15T20:17:29.303Z] [iam] checking project bspstore-edddc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-15T20:17:29.304Z] > refreshing access token with scopes: []
+[debug] [2024-10-15T20:17:29.306Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-15T20:17:29.306Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-15T20:17:29.565Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-10-15T20:17:29.565Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-15T20:17:29.571Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions [none]
+[debug] [2024-10-15T20:17:29.571Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions x-goog-quota-user=projects/bspstore-edddc
+[debug] [2024-10-15T20:17:29.571Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T20:17:30.503Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions 200
+[debug] [2024-10-15T20:17:30.503Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T20:17:30.504Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc [none]
+[debug] [2024-10-15T20:17:30.808Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc 200
+[debug] [2024-10-15T20:17:30.808Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc {"projectId":"bspstore-edddc","projectNumber":"889829954972","displayName":"BSPStore","name":"projects/bspstore-edddc","resources":{"hostingSite":"bspstore-edddc","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_cd3b5e14-7ec3-4734-803f-9d8ed8210272"}
+[debug] [2024-10-15T20:17:38.706Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites pageToken=&pageSize=10
+[debug] [2024-10-15T20:17:40.167Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T20:17:40.167Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T20:17:40.168Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 
+[debug] [2024-10-15T20:17:40.456Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T20:17:40.456Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T20:17:40.457Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config [none]
+[debug] [2024-10-15T20:17:41.379Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config 200
+[debug] [2024-10-15T20:17:41.379Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config {"projectId":"bspstore-edddc","appId":"1:889829954972:web:62401248e72e0951c0e459","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central","apiKey":"AIzaSyC-tyxWI53wicroqnaBEYDRlpyuYJMj2Zw","authDomain":"bspstore-edddc.firebaseapp.com","messagingSenderId":"889829954972"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-10-15T20:17:57.055Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc [none]
+[debug] [2024-10-15T20:17:58.018Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc 200
+[debug] [2024-10-15T20:17:58.018Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc {"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info]   - Environments: .env.local
+
+
+[info]    Creating an optimized production build ...
+
+[info] <w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\next-flight-css-loader.js??ruleSet[1].rules[14].oneOf[7].use[0]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[1]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[2]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\src\app\beatsfhome\repro.module.css|ssr': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 1 items } -> webpack/lib/ModuleWarning -> Warning
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./src/app/beatsfhome/repro.module.css
+Warning
+
+(271:5) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+./src/app/beatsfhome/repro.module.css
+./src/app/beatsfhome/reproductor.tsx
+./src/app/page.tsx
+
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./src/app/beats/page.tsx
+135:6  Warning: React Hook useEffect has a missing dependency: 'dispatch'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+201:6  Warning: React Hook useEffect has missing dependencies: 'data', 'existeFiltro', and 'loadedData'. Either include them or remove the dependency array. You can also do a functional update 'setLoadedData(l => ...)' if you only need 'loadedData' in the 'setLoadedData' call.  react-hooks/exhaustive-deps
+334:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/beatsfhome.tsx
+67:8  Warning: React Hook useEffect has a missing dependency: 'ObjetoAleatorio'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+72:8  Warning: React Hook useEffect has a missing dependency: 'currentBeatOfAll'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+77:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+85:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/beatslist.jsx
+40:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/reproductor.tsx
+271:6  Warning: React Hook useEffect has missing dependencies: 'colors.secondary' and 'iconColor'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+313:19  Warning: The ref value 'sliderRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'sliderRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+316:6  Warning: React Hook useEffect has a missing dependency: 'colors.secondary'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+390:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/foot/footer.tsx
+11:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+13:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/home/page.tsx
+181:6  Warning: React Hook useEffect has a missing dependency: 'widthDiviceItsEnough'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+328:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+396:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+412:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+445:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+462:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+494:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+510:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+543:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+563:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+596:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+612:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+644:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+664:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+696:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+712:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/ruleta/ruleta.tsx
+20:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/samplefhome/sample-list.tsx
+9:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/7) ...
+
+[info]    Generating static pages (1/7) 
+
+[info]    Generating static pages (3/7) 
+
+[info]    Generating static pages (5/7) 
+
+[info]  ✓ Generating static pages (7/7)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                               Size     First Load JS
+┌ ○ /                                     113 kB          271 kB
+├ ○ /_not-found                           879 B          88.2 kB
+├ ○ /beats                                55.5 kB         216 kB
+└ ○ /home                                 5.5 kB          102 kB
++ First Load JS shared by all             87.4 kB
+  ├ chunks/23-52a02923e7068a8b.js         31.7 kB
+  ├ chunks/fd9d1056-406d0c2632256012.js   53.7 kB
+  └ other shared chunks (total)           2.01 kB
+
+Route (pages)                             Size     First Load JS
+─ ƒ /api/auth/[...nextauth]               0 B              84 kB
++ First Load JS shared by all             84 kB
+  ├ chunks/framework-b370f160bb96059c.js  45.2 kB
+  ├ chunks/main-0815a7a183542bc0.js       36.8 kB
+  └ other shared chunks (total)           1.99 kB
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • non-static route /api/auth/[...nextauth]
+[info] 
+[debug] [2024-10-15T20:18:35.676Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc [none]
+[debug] [2024-10-15T20:18:36.612Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc 200
+[debug] [2024-10-15T20:18:36.612Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc {"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}
+[debug] [2024-10-15T20:18:47.359Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:375:42)
+    at async deploy (C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:57:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-15T20:19:18.915Z] ----------------------------------------------------------------------
+[debug] [2024-10-15T20:19:18.917Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-10-15T20:19:18.917Z] CLI Version:   13.11.0
+[debug] [2024-10-15T20:19:18.917Z] Platform:      win32
+[debug] [2024-10-15T20:19:18.918Z] Node Version:  v20.9.0
+[debug] [2024-10-15T20:19:18.918Z] Time:          Tue Oct 15 2024 17:19:18 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-10-15T20:19:18.918Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-15T20:19:18.973Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-15T20:19:18.973Z] > authorizing via signed-in user (adamscontreras18@gmail.com)
+[debug] [2024-10-15T20:19:18.973Z] [iam] checking project bspstore-edddc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-15T20:19:18.975Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions [none]
+[debug] [2024-10-15T20:19:18.975Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions x-goog-quota-user=projects/bspstore-edddc
+[debug] [2024-10-15T20:19:18.975Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T20:19:19.863Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions 200
+[debug] [2024-10-15T20:19:19.863Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/bspstore-edddc:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-15T20:19:19.863Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc [none]
+[debug] [2024-10-15T20:19:20.148Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc 200
+[debug] [2024-10-15T20:19:20.148Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc {"projectId":"bspstore-edddc","projectNumber":"889829954972","displayName":"BSPStore","name":"projects/bspstore-edddc","resources":{"hostingSite":"bspstore-edddc","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_cd3b5e14-7ec3-4734-803f-9d8ed8210272"}
+[debug] [2024-10-15T20:19:28.004Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites pageToken=&pageSize=10
+[debug] [2024-10-15T20:19:29.113Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T20:19:29.113Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T20:19:29.114Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 
+[debug] [2024-10-15T20:19:29.377Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites 200
+[debug] [2024-10-15T20:19:29.377Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites {"sites":[{"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-15T20:19:29.377Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config [none]
+[debug] [2024-10-15T20:19:30.233Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config 200
+[debug] [2024-10-15T20:19:30.233Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/bspstore-edddc/webApps/-/config {"projectId":"bspstore-edddc","appId":"1:889829954972:web:62401248e72e0951c0e459","storageBucket":"bspstore-edddc.appspot.com","locationId":"us-central","apiKey":"AIzaSyC-tyxWI53wicroqnaBEYDRlpyuYJMj2Zw","authDomain":"bspstore-edddc.firebaseapp.com","messagingSenderId":"889829954972"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-10-15T20:19:45.925Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc [none]
+[debug] [2024-10-15T20:19:46.879Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc 200
+[debug] [2024-10-15T20:19:46.879Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc {"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.4
+
+[info]   - Environments: .env.local
+
+
+[info]    Creating an optimized production build ...
+
+[info] <w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\next-flight-css-loader.js??ruleSet[1].rules[14].oneOf[7].use[0]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[1]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[7].use[2]!C:\Users\adams\OneDrive\Desktop\Programacion\Bsp\main\src\app\beatsfhome\repro.module.css|ssr': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 1 items } -> webpack/lib/ModuleWarning -> Warning
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./src/app/beatsfhome/repro.module.css
+Warning
+
+(271:5) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+./src/app/beatsfhome/repro.module.css
+./src/app/beatsfhome/reproductor.tsx
+./src/app/beats/page.tsx
+
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./src/app/beats/page.tsx
+135:6  Warning: React Hook useEffect has a missing dependency: 'dispatch'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+201:6  Warning: React Hook useEffect has missing dependencies: 'data', 'existeFiltro', and 'loadedData'. Either include them or remove the dependency array. You can also do a functional update 'setLoadedData(l => ...)' if you only need 'loadedData' in the 'setLoadedData' call.  react-hooks/exhaustive-deps
+334:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/beatsfhome.tsx
+67:8  Warning: React Hook useEffect has a missing dependency: 'ObjetoAleatorio'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+72:8  Warning: React Hook useEffect has a missing dependency: 'currentBeatOfAll'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+77:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+85:37  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/beatslist.jsx
+40:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/beatsfhome/reproductor.tsx
+271:6  Warning: React Hook useEffect has missing dependencies: 'colors.secondary' and 'iconColor'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+313:19  Warning: The ref value 'sliderRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'sliderRef.current' to a variable inside the effect, and use that variable in the cleanup function.  react-hooks/exhaustive-deps
+316:6  Warning: React Hook useEffect has a missing dependency: 'colors.secondary'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+390:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/foot/footer.tsx
+11:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+13:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/home/page.tsx
+181:6  Warning: React Hook useEffect has a missing dependency: 'widthDiviceItsEnough'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+328:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+396:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+412:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+445:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+462:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+494:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+510:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+543:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+563:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+596:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+612:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+644:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+664:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+696:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+712:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/ruleta/ruleta.tsx
+20:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/samplefhome/sample-list.tsx
+9:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/7) ...
+
+[info]    Generating static pages (1/7) 
+
+[info]    Generating static pages (3/7) 
+
+[info]    Generating static pages (5/7) 
+
+[info]  ✓ Generating static pages (7/7)
+
+[info]    Finalizing page optimization ...
+   Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                               Size     First Load JS
+┌ ○ /                                     113 kB          271 kB
+├ ○ /_not-found                           879 B          88.2 kB
+├ ○ /beats                                55.5 kB         216 kB
+└ ○ /home                                 5.5 kB          102 kB
++ First Load JS shared by all             87.4 kB
+  ├ chunks/23-52a02923e7068a8b.js         31.7 kB
+  ├ chunks/fd9d1056-406d0c2632256012.js   53.7 kB
+  └ other shared chunks (total)           2.01 kB
+
+Route (pages)                             Size     First Load JS
+─ ƒ /api/auth/[...nextauth]               0 B              84 kB
++ First Load JS shared by all             84 kB
+  ├ chunks/framework-b370f160bb96059c.js  45.2 kB
+  ├ chunks/main-0815a7a183542bc0.js       36.8 kB
+  └ other shared chunks (total)           1.99 kB
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • non-static route /api/auth/[...nextauth]
+[info] 
+[debug] [2024-10-15T20:20:24.359Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc [none]
+[debug] [2024-10-15T20:20:25.297Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc 200
+[debug] [2024-10-15T20:20:25.297Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/bspstore-edddc/sites/bspstore-edddc {"name":"projects/bspstore-edddc/sites/bspstore-edddc","defaultUrl":"https://bspstore-edddc.web.app","type":"DEFAULT_SITE"}
+[debug] [2024-10-15T20:20:28.650Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:890:11)
+    at execSync (node:child_process:962:15)
+    at prepareFrameworks (C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:375:42)
+    at async deploy (C:\Users\adams\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:57:13)
+[error] 
+[error] Error: An unexpected error has occurred.

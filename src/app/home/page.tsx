@@ -77,6 +77,7 @@ const Home: React.FC = () => {
       ) {
         setUbicacionDelUsuario(3);
       } else if (
+        visibleContainerTwo.current &&
         visibleContainerTwo.current.getBoundingClientRect().top <= 0 &&
         visibleContainerTwo.current.getBoundingClientRect().top > -100
       ) {
@@ -103,8 +104,11 @@ const Home: React.FC = () => {
   }, [WNav]);
 
   useEffect(() => {
-
-    if (ubicacionDelUsuario == 4 && widthDiviceItsEnough) {
+    if (
+      navComponent.current &&
+      ubicacionDelUsuario == 4 &&
+      widthDiviceItsEnough
+    ) {
       navComponent.current.classList.remove("home_objMov__QBfMb");
       navComponent.current.classList.remove("home_equipos__AuPR4");
       navComponent.current.classList.remove("home_contacto__4BK_n");
@@ -112,7 +116,11 @@ const Home: React.FC = () => {
       navComponent.current.classList.add("home_ubicacion__8chJa");
       //!----------------------------------------------------------------
       // setHoverredFUbicacion(true);
-    } else if (ubicacionDelUsuario == 3 && widthDiviceItsEnough) {
+    } else if (
+      navComponent.current &&
+      ubicacionDelUsuario == 3 &&
+      widthDiviceItsEnough
+    ) {
       navComponent.current.classList.remove("home_ubicacion__8chJa");
       navComponent.current.classList.remove("home_equipos__AuPR4");
       navComponent.current.classList.remove("home_contacto__4BK_n");
@@ -120,7 +128,11 @@ const Home: React.FC = () => {
       navComponent.current.classList.add("home_objMov__QBfMb");
       //!----------------------------------------------------------------
       // setHoverredFUbicacion(false);
-    } else if (ubicacionDelUsuario == 5 && widthDiviceItsEnough) {
+    } else if (
+      navComponent.current &&
+      ubicacionDelUsuario == 5 &&
+      widthDiviceItsEnough
+    ) {
       navComponent.current.classList.remove("home_objMov__QBfMb");
       navComponent.current.classList.remove("home_ubicacion__8chJa");
       navComponent.current.classList.remove("home_contacto__4BK_n");
@@ -128,7 +140,11 @@ const Home: React.FC = () => {
       //!----------------------------------------------------------------
       navComponent.current.classList.add("home_equipos__AuPR4");
       //!----------------------------------------------------------------
-    } else if (ubicacionDelUsuario == 1 && widthDiviceItsEnough) {
+    } else if (
+      navComponent.current &&
+      ubicacionDelUsuario == 1 &&
+      widthDiviceItsEnough
+    ) {
       navComponent.current.classList.remove("home_equipos__AuPR4");
       navComponent.current.classList.remove("home_ubicacion__8chJa");
       navComponent.current.classList.remove("home_objMov__QBfMb");
@@ -139,11 +155,19 @@ const Home: React.FC = () => {
     if (!isHovering && widthDiviceItsEnough) {
       if (navComponent.current && ubicacionDelUsuario == 3) {
         navComponent.current.classList.add("home_objMov__QBfMb");
-      } else if (ubicacionDelUsuario == 4 && widthDiviceItsEnough) {
+      } else if (
+        navComponent.current &&
+        ubicacionDelUsuario == 4 &&
+        widthDiviceItsEnough
+      ) {
         navComponent.current.classList.add("home_ubicacion__8chJa");
-      } else if (ubicacionDelUsuario == 5 && widthDiviceItsEnough) {
+      } else if (
+        navComponent.current &&
+        ubicacionDelUsuario == 5 &&
+        widthDiviceItsEnough
+      ) {
         navComponent.current.classList.add("home_equipos__AuPR4");
-      } else {
+      } else if (navComponent.current) {
         navComponent.current.classList.add("home_contacto__4BK_n");
       }
     } else {
@@ -159,8 +183,10 @@ const Home: React.FC = () => {
   //?Effect para el ancho de pantalla-----------------------------------
   const widthDevice = useDeviceWidth();
   useEffect(() => {
-    widthDevice >= 1920
-      ? setWidthDiviceItsEnough(true)
+    widthDevice
+      ? widthDevice >= 1920
+        ? setWidthDiviceItsEnough(true)
+        : setWidthDiviceItsEnough(false)
       : setWidthDiviceItsEnough(false);
   }, [widthDevice, widthDiviceItsEnough]);
 
@@ -363,31 +389,33 @@ const Home: React.FC = () => {
               className={style.contentOFCardsAuris}
               style={{ background: "#000" }}
             >
-              {data.categorias[0].Auriculares.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[0].Auriculares &&
+                data.categorias[0].Auriculares.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsAuris} ref={auris}>
-                  {data.categorias[0].Auriculares.map((item, index) => (
-                    <div key={index} className={style.cards}>
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[0].Auriculares &&
+                    data.categorias[0].Auriculares.map((item, index) => (
+                      <div key={index} className={style.cards}>
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -409,31 +437,35 @@ const Home: React.FC = () => {
               className={style.contentOFCardsCuerdas}
               style={{ background: "#000" }}
             >
-              {data.categorias[1].Cuerdas.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data &&
+                data.categorias[1].Cuerdas &&
+                data.categorias[1].Cuerdas.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt={item.name} />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsCuerdas} ref={cuerdas}>
-                  {data.categorias[1].Cuerdas.map((item, index) => (
-                    <div key={index} className={style.cards}>
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data &&
+                    data.categorias[1].Cuerdas &&
+                    data.categorias[1].Cuerdas.map((item, index) => (
+                      <div key={index} className={style.cards}>
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -455,31 +487,33 @@ const Home: React.FC = () => {
               className={style.contentOFCardsMicros}
               style={{ background: "#000" }}
             >
-              {data.categorias[2].Microfonos.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[2].Microfonos &&
+                data.categorias[2].Microfonos.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsMicros} ref={micros}>
-                  {data.categorias[2].Microfonos.map((item, index) => (
-                    <div key={index} className={style.cards}>
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[2].Microfonos &&
+                    data.categorias[2].Microfonos.map((item, index) => (
+                      <div key={index} className={style.cards}>
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -502,35 +536,37 @@ const Home: React.FC = () => {
               className={style.contentOFCardsMonitores}
               style={{ background: "#000" }}
             >
-              {data.categorias[3].Monitores.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[3].Monitores &&
+                data.categorias[3].Monitores.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsMonitores} ref={monitores}>
-                  {data.categorias[3].Monitores.map((item, index) => (
-                    <div
-                      key={index}
-                      className={style.cards}
-                      style={{ width: "80vw !important" }}
-                    >
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[3].Monitores &&
+                    data.categorias[3].Monitores.map((item, index) => (
+                      <div
+                        key={index}
+                        className={style.cards}
+                        style={{ width: "80vw !important" }}
+                      >
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -553,31 +589,33 @@ const Home: React.FC = () => {
               className={style.contentOFCardsIDS}
               style={{ background: "#000" }}
             >
-              {data.categorias[4].InterfazDeSonido.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[4].InterfazDeSonido &&
+                data.categorias[4].InterfazDeSonido.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsIDS} ref={Ids}>
-                  {data.categorias[4].InterfazDeSonido.map((item, index) => (
-                    <div key={index} className={style.cards}>
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[4].InterfazDeSonido &&
+                    data.categorias[4].InterfazDeSonido.map((item, index) => (
+                      <div key={index} className={style.cards}>
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -599,35 +637,37 @@ const Home: React.FC = () => {
               className={style.contentOFCardsPedales}
               style={{ background: "#000" }}
             >
-              {data.categorias[5].Pedales.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[5].Pedales &&
+                data.categorias[5].Pedales.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsPedales} ref={pedales}>
-                  {data.categorias[5].Pedales.map((item, index) => (
-                    <div
-                      key={index}
-                      className={style.cards}
-                      style={{ width: "88vw !important" }}
-                    >
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[5].Pedales &&
+                    data.categorias[5].Pedales.map((item, index) => (
+                      <div
+                        key={index}
+                        className={style.cards}
+                        style={{ width: "88vw !important" }}
+                      >
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -649,31 +689,33 @@ const Home: React.FC = () => {
               className={style.contentOFCardsTeclados}
               style={{ background: "#000" }}
             >
-              {data.categorias[6].Teclados.map((item, index) => (
-                <div key={index} className={style.cards}>
-                  <div className={style.pic}>
-                    <img src={item.pic} alt="" />
+              {data.categorias[6].Teclados &&
+                data.categorias[6].Teclados.map((item, index) => (
+                  <div key={index} className={style.cards}>
+                    <div className={style.pic}>
+                      <img src={item.pic} alt="" />
+                    </div>
+                    <div className={style.nameOfCard}>
+                      <h2>{item.name}</h2>
+                    </div>
                   </div>
-                  <div className={style.nameOfCard}>
-                    <h2>{item.name}</h2>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           ) : (
             <div className={style.container}>
               <div className={style.contentWrapper}>
                 <div className={style.contentOFCardsTeclados} ref={teclados}>
-                  {data.categorias[6].Teclados.map((item, index) => (
-                    <div key={index} className={style.cards}>
-                      <div className={style.pic}>
-                        <img src={item.pic} alt="" />
+                  {data.categorias[6].Teclados &&
+                    data.categorias[6].Teclados.map((item, index) => (
+                      <div key={index} className={style.cards}>
+                        <div className={style.pic}>
+                          <img src={item.pic} alt="" />
+                        </div>
+                        <div className={style.nameOfCard}>
+                          <h2>{item.name}</h2>
+                        </div>
                       </div>
-                      <div className={style.nameOfCard}>
-                        <h2>{item.name}</h2>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
