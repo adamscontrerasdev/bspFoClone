@@ -32,6 +32,15 @@ export interface ListaParaNewListOfBeats {
         updateTime: string;
     }];
 }
+export interface Favorite {
+    id: string;
+    beatId: string;
+  }
+
+  export interface ListOfFavoritesInterface {
+    favorites: Favorite[]; // Definir como un array de objetos `Favorite`
+  }
+  
 
 export const userApi = createApi({
     reducerPath: "userApi",
@@ -50,6 +59,48 @@ export const userApi = createApi({
         }),
     }),
 });
+
+export const favoritesApi = createApi({
+    reducerPath: "favoritesApi",
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://firestore.googleapis.com/v1/projects/bspstore-edddc/databases/(default)/documents/', // Base URL para Firestore
+    }),
+    endpoints: (builder) => ({
+        getFavoritesByUserId: builder.query<ListOfFavoritesInterface | null, { userId: string }>({
+            query: ({ userId }) => `users/${userId}/favorites`,
+            transformResponse: async (response: any, meta, arg) => {
+                // Si el usuario no existe o no tiene favoritos
+                if (response.error?.status === 404) {
+                    return null; // Retornar null si no existe la colección del usuario
+                }
+                return response; // Devolver la respuesta en caso de éxito
+            }
+        }),
+        getAllFavorites: builder.query<ListOfFavoritesInterface[], null>({
+            query: () => "users/favorites",
+        }),
+        addFavoriteBeat: builder.mutation<{ success: boolean }, { userId: string, beatId: string }>({
+            query: ({ userId, beatId }) => ({
+                url: `users/${userId}/favorites`,
+                method: 'POST',
+                body: { beatId },
+            }),
+        }),
+        removeFavoriteBeat: builder.mutation<{ success: boolean }, { userId: string, favoriteId: string }>({
+            query: ({ userId, favoriteId }) => ({
+                url: `users/${userId}/favorites/${favoriteId}`,
+                method: 'DELETE',
+            }),
+        }),
+    }),
+});
+// Hooks para usar en los componentes
+export const {
+    useGetFavoritesByUserIdQuery,
+    useGetAllFavoritesQuery,
+    useAddFavoriteBeatMutation,
+    useRemoveFavoriteBeatMutation,
+} = favoritesApi;
 
 export const { useGetBeatsQuery, useGetInitialBeatsQuery } = userApi;
 export const userApiReducer = userApi.reducer;
