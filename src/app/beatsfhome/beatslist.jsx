@@ -38,7 +38,7 @@ const Lista = () => {
             onClick={() => reproducirBeat(beat.id)}
           >
             <img
-              src={`/api/proxy?url=${encodeURIComponent(beat.pic)}`} // Asegúrate de codificar la URL
+              src={`/api/proxy?url=${encodeURIComponent(beat.pic)}`}
               alt={beat.pic}
               className={style.pic}
             />
