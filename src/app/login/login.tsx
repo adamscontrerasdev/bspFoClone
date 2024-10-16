@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { signIn, getSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import style from "./login.module.css";
-import stylesLoader from "./../Loader.module.css"
+import stylesLoader from "./../Loader.module.css";
 
 const Login = () => {
   const [session, setSession] = useState<any>(null);
@@ -13,6 +13,7 @@ const Login = () => {
     const fetchSession = async () => {
       setIsLoading(true);
       const session = await getSession();
+      console.log(session); // Agrega este log para verificar la sesión
       setSession(session);
       setIsLoading(false);
     };
@@ -35,7 +36,9 @@ const Login = () => {
         <div className={style.iniciarContainer}>
           <h2>Inicia sesión con Google</h2>
           <p>Inicio sesión y datos protegidos por Google®</p>
-          <button onClick={() => signIn("google", { prompt: "select_account" })}>
+          <button
+            onClick={() => signIn("google", { prompt: "select_account" })}
+          >
             Iniciar sesión <FcGoogle style={{ fontSize: "24px" }} />
           </button>
         </div>
@@ -44,7 +47,10 @@ const Login = () => {
           <h2 className={style.titleLogin}>Bienvenido, {session.user.name}</h2>
           <div className={style.imgContainer}>
             <Image
-              src={session.user.image}
+              src={`/api/proxy?url=${
+                encodeURIComponent(session.user.image) ||
+                "/AssetsBsp/Sample_User_Icon.png"
+              }`}
               alt="Perfil"
               width={96}
               height={96}

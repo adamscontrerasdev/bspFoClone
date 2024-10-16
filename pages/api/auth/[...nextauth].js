@@ -10,12 +10,14 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, token }) {
-      session.user.id = token.sub; // Asegúrate de que el id esté disponible
+      session.user.id = token.sub; // Guarda el id del token en la sesión
+      session.user.image = token.picture; // Asegúrate de que la imagen también esté disponible en la sesión
       return session;
     },
-    async jwt({ token, user }) {
-      if (user) {
-        token.sub = user.email; // Cambia esto a user.email o user.id según lo que necesites
+    async jwt({ token, user, account }) {
+      // Cuando se genera el JWT por primera vez, almacena la imagen del perfil del usuario
+      if (user && account) {
+        token.picture = user.image; // Aquí guardamos la URL de la imagen de perfil de Google
       }
       return token;
     },

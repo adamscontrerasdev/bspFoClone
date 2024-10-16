@@ -55,8 +55,7 @@ const Header: React.FC<HeaderProps> = ({ setShowFav }) => {
   };
 
   const showFavorite = () => {
-    setShowFav?
-    setShowFav(prev => !prev):alert // Alternamos el valor de showFav
+    setShowFav ? setShowFav((prev) => !prev) : alert; // Alternamos el valor de showFav
   };
 
   return (
@@ -72,7 +71,10 @@ const Header: React.FC<HeaderProps> = ({ setShowFav }) => {
           {iniciado ? (
             <div className={styles.imageContainer}>
               <Image
-                src={localSession.user.image}
+                src={`/api/proxy?url=${
+                  encodeURIComponent(localSession.user.image) ||
+                  "/AssetsBsp/Sample_User_Icon.png"
+                }`}
                 alt="Perfil"
                 width={96}
                 height={96}
@@ -113,8 +115,8 @@ const Header: React.FC<HeaderProps> = ({ setShowFav }) => {
           <h4>samples packs</h4>
         </Link>
         <div className={styles.coraContainer} onClick={showFavorite}>
-        <MdOutlineFavorite className={`${styles.favIcon} ${styles.one}`} />
-        <MdFavoriteBorder className={`${styles.favIcon} ${styles.two} `}/>
+          <MdOutlineFavorite className={`${styles.favIcon} ${styles.one}`} />
+          <MdFavoriteBorder className={`${styles.favIcon} ${styles.two} `} />
         </div>
       </div>
     </div>
